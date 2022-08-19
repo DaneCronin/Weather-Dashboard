@@ -17,7 +17,7 @@
 
     <!-- Header Section with Site Title-->
     <header> 
-        <h1> Weather Dashboard</h1>
+        <h1 class="app-title"> Weather Dashboard</h1>
     </header>
 
     <!-- Main Container for Weather Sections-->
@@ -25,21 +25,35 @@
 
     <!-- Search Form Section -->
     <div>
+    
+        <form>
+            <label class="form-label" for="city"><span><h3>Search for a City: </h3></span></label>
+            <input class="form-input" name="city" id="city-search" type="text" />
+            <button class="btn" type="submit">Search</button>
+        </form>
 
     </div>
 
     <!-- Searched Cities History Section -->
-    <div>
-
+    <div class="searched-cities-container">
+        <!--<button class="searchedbtn"></button>-->
     </div>
 
     <!-- Current Weather Display Section-->
-    <div>
+    <div class="current-weather-container">
+        <h3>Current Weather</h3>
+        <div class="current-weather">
+
+        </div>
 
     </div>
 
     <!-- 5-Day Forecast Weather Display Section-->
-    <div>
+    <div class="ext-forecast-container">
+        <h3>5-Day Forecast:</h3>
+        <div class="extended-forecast">
+
+        </div>
 
     </div>
 
