@@ -13,7 +13,7 @@
 </head>
 
 
-<body>
+<body class="flex-column min-100-vh">
 
     <!-- Header Section with Site Title-->
     <header> 
@@ -21,21 +21,21 @@
     </header>
 
     <!-- Main Container for Weather Sections-->
-    <main>
+    <main class="container">
 
     <!-- Search Form Section -->
-    <div>
-    
-        <form>
+    <div class="card col-12 col-md-4">
+        
+        <form class="card-body">
             <label class="form-label" for="city"><span><h3>Search for a City: </h3></span></label>
-            <input class="form-input" name="city" id="city-search" type="text" />
+            <input class="form-input" name="city" id="city-search" type="text"/>
             <button class="btn" type="submit">Search</button>
         </form>
 
     </div>
 
     <!-- Searched Cities History Section -->
-    <div class="searched-cities-container">
+    <div class="searched-cities-container card col-12 col-md-4">
         <!--<button class="searchedbtn"></button>-->
     </div>
 
