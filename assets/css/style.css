@@ -6,15 +6,63 @@ body {
    background-color: #FFFFFF; 
 }
 
+h4,
+h5 {
+    font-weight: bold;
+}
+
+main {
+    width: 100%;
+  }
+
 /* Header Styling */
 header {
-    background-image: linear-gradient(to right, rgba(47, 69, 194, 0.7), rgba(3, 20, 112, 1));
+    background-image: linear-gradient(to right, rgba(39,115,180, 0.9), rgb(8,20,117));
 }
 
 header h1 {
     color: #fff;
-    font-style: bold;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     padding-bottom: 10px;
+}
+
+/* City Search Form Styling */
+.card {
+    border: none;
+}
+
+
+
+.btn {
+    background-color: rgb(84,158,226);
+    padding: 3px;
+    color: rgb(205, 228, 245);
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+}
+
+.btn:hover {
+    color: rgb(205, 228, 245);
+    background-color: rgb(8,20,117);
+}
+
+.form-input {
+    padding: 5px;
+    width: 100%;
+    margin: 5px, 0;
+}
+
+/* Current Weather Styling */
+.weather {
+    align-items: center;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.current-weather-container h4 {
+    text-align: center;
 }

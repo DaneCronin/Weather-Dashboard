@@ -1,5 +1,5 @@
 // Declare variables for city
-
+var cityFormEl = document.querySelector("form-input")
 
 // Create function to fetch data from OpenWeather API
 
