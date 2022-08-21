@@ -25,55 +25,55 @@
     <!-- Main Container for Weather Sections-->
     <main class="row justify-space-between">
 
-      
-            <!-- Search Form Section -->
-            <div class="col-12 col-md-4">
-                <div class="card search-card">
-                    <form class="card-body" id="search-form">
-                        <label class="form-label" for="city">
-                                <h4>Search for a City: </h4>
-                            </label>
-                        <input class="form-input" name="city" id="city-search" placeholder="City" type="text" />
-                        <button class="btn" id="search-btn" type="submit">Search</button>
-                    </form>
-                </div>
-         
 
-             <!-- Searched Cities History Section -->
-             <div class="card">
+        <!-- Search Form Section -->
+        <div class="col-12 col-md-4">
+            <div class="card search-card">
+                <form class="card-body" id="search-form">
+                    <label class="form-label" for="city">
+                        <h4>Search for a City: </h4>
+                    </label>
+                    <input class="form-input" name="city" id="city-search" placeholder="City" type="text" />
+                    <button class="btn" id="search-btn" type="submit">Search</button>
+                </form>
+            </div>
+
+
+            <!-- Searched Cities History Section -->
+            <div class="card">
                 <div class="card-body history">
                     <!--<button class="searchedbtn"></button>-->
                     <button class="btn" type="submit" id="savedCityBtn">
                 </div>
             </div>
         </div>
-   
-            <!-- Current Weather Display Section-->
-            <div class="weather col-12 col-md-8">
-                <div class="card" id="searchedCityWeather">
-                    <h4 class="card-title text-left">Current Weather</h4>
-                   <p>Temp:</p>
-                   <p>Wind:</p>
-                   <p>Humidity:</p>
-                   <p>UV Index:</p>
-                </div>
-            
 
-          
-               
+        <!-- Current Weather Display Section-->
+        <div class="weather col-12 col-md-8">
+            <div class="card" id="current-weather">
+                <h4 class="card-title text-left">Current Weather</h4>
+                <p>Temp:</p>
+                <p>Wind:</p>
+                <p>Humidity:</p>
+                <p>UV Index:</p>
+            </div>
 
 
-         
+
+
+
+
+
 
             <!-- 5-Day Forecast Weather Display Section-->
-            
-                <div class="ext-forecast-container col-12 col-md-8">
-                    <h5>5-Day Forecast:</h5>
-                    <div class="extended-forecast row">
 
-                    </div>
+            <div class="ext-forecast-container col-12 col-md-8">
+                <h5>5-Day Forecast:</h5>
+                <div class="extended-forecast row">
+
                 </div>
-            
+            </div>
+
         </div>
 
     </main>

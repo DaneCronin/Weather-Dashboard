@@ -62,6 +62,11 @@ header h1 {
     background-color: rgb(163, 163, 163);
     color: black;
 }
+
+#savedCityBtn:hover {
+    color: rgb(205, 228, 245);
+    background-color: rgb(8,20,117);
+}
 /* Current Weather Styling */
 .weather {
     align-items: center;
