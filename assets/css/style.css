@@ -56,6 +56,12 @@ header h1 {
     margin: 5px, 0;
 }
 
+
+/* Saved City History Styling */
+#savedCityBtn {
+    background-color: rgb(163, 163, 163);
+    color: black;
+}
 /* Current Weather Styling */
 .weather {
     align-items: center;
