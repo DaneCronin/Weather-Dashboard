@@ -9,6 +9,8 @@ var cityNameSearch = document.querySelector("#city-search"); //Variable for the 
 var cityName = document.querySelector("#city-name"); //Variable to display searched City's name in current weather element 
 var currentWeatherEl = document.querySelector("#current-weather"); //Variable to hold current weather
 var fiveDayEl = document.querySelector("#extended-forecast"); //Variable to hold the 5-day extended forecast
+var savedCityButtonsEl = document.querySelector("#savedCityBtn"); //Variables for button to hold searched-for cities
+var historyCardEl = document.querySelector("history"); //Variable for container for searched city buttons
 var cityHistory = [];  //Store cities in an array
 
 
@@ -22,8 +24,21 @@ var formSubmitHandler= function (event) {
 
     
     if (city) {
+
+        //Save searcehd city names into local storage and display in savedCityButtons
+        // cityHistory.push(city);
+        // localStorage.setItem("weatherSearch", JSON.stringify(cityHistory));
+        // var searchHistoryEl = document.createElement('button');
+        // searchHistoryEl.className = "btn";
+        // searchHistoryEl.setAttribute("data-city", city)
+        // searchHistoryEl.innerHTML = city;
+        // savedCityButtonsEl.appendChild(searchHistoryEl);
+        // historyCardEl.removeAttribute(style = "display: none");
+
+
         getCity(city);
         cityNameSearch.value = "";
+
     } else {
         alert("Please enter city name!");
     }
@@ -97,7 +112,7 @@ var displayCurrentWeather = function(weather) {
     //display temp
     var temperature = document.createElement('p');
     temperature.id = "temp";
-    temperature.innerHTML = "Temp: "//+ weather[0].temp; 
+    temperature.innerHTML = "Temp: " + weather.temp; 
     currentWeatherEl.appendChild(temperature);
    
 
@@ -143,8 +158,35 @@ var displayCurrentWeather = function(weather) {
     //     fiveDayEl.appendChild(dayEl);
     // }
 
-// Store cities searched to localStorage and show as buttons beneath search
+// load cities searched to localStorage and show as buttons beneath search
 
+// var loadHistory = function () {
+//     searchArray = JSON.parse(localStorage.getItem("weatherSearch"));
+
+//     if (searchArray) {
+//         cityHistory = JSON.parse(localStorage.getItem("weatherSearch"));
+//         for (let i = 0; i < searchArray.length; i++) {
+//             var searchHistoryEl = document.createElement('button');
+//             searchHistoryEl.className = "btn";
+//             searchHistoryEl.setAttribute("data-city", searchArray[i])
+//             searchHistoryEl.innerHTML = searchArray[i];
+//             historyButtonsEl.appendChild(searchHistoryEl);
+//             historyCardEl.removeAttribute("style");
+//         }
+
+//     }
+// }
+
+// // Search weather using search history buttons
+// var buttonClickHandler = function (event) {
+//     var city = event.target.getAttribute("data-city");
+//     if (city) {
+//         getWeatherInfo(city);
+//     }
+// }
 
 //Add event listener for button click on search
 cityFormEl.addEventListener("submit", formSubmitHandler);
+
+//Add event listener for click on searched-city buttons
+//savedCityButtonsEl.addEventListener("click", buttonClickHandler);
