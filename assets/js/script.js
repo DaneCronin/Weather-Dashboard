@@ -19,6 +19,7 @@ var formSubmitHandler= function (event) {
 
 
     var city = cityNameSearch.value.trim();
+
     
     if (city) {
         getCity(city);
@@ -89,13 +90,14 @@ var displayCurrentWeather = function(weather) {
         return;
     }
 
-    //clear old content
+    //clear old content?-
+      
   
 
     //display temp
     var temperature = document.createElement('p');
     temperature.id = "temp";
-    temperature.innerHTML = "Temp: "; 
+    temperature.innerHTML = "Temp: "//+ weather[0].temp; 
     currentWeatherEl.appendChild(temperature);
    
 
@@ -123,7 +125,23 @@ var displayCurrentWeather = function(weather) {
 
 
 // Display 5-day Forecast of current city
-    // loop over weather data 
+    // var extendedForecastArray = weather.daily;
+    // // loop over weather data 
+    // for (var i=0; i < extendedForecastArray; i++) {
+
+    //     var date = (today.getMonth() + 1) + '/' + (today.getDate()) + '/' + today.getFullYear();
+    //     var weatherIcon = extendedForecastArray[i].weather[0].icon;
+    //     var weatherDescription = extendedForecastArray[i].weather[0].description;
+    //     weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
+    //     var dayEl = document.createElement("div");
+    //     dayEl.className = "day";
+    //     dayEl.innerHTML = "<p>" + date + "</p>" +
+    //         "<p>" + weatherIconLink + "</p>" +
+    //         "<p>Temp:" + extendedForecastArray[i].temp.day.toFixed(1) + "°F</p>" +
+    //         "<p>Humidity: " + extendedForecastArray[i].humidity + "%</p>"
+
+    //     fiveDayEl.appendChild(dayEl);
+    // }
 
 // Store cities searched to localStorage and show as buttons beneath search
 
