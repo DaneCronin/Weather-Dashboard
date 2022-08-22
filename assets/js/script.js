@@ -43,34 +43,42 @@ var getCity = function (city) {
             var day = date.getDate();
             var month = date.getMonth();
             var year = date.getFullYear();
+            var weatherIcon = data.weather[0].icon;
+            var weatherDescription = data.weather[0].description;
+           // var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
 
-            cityName.innerHTML = data.name + " (" + month + "/" + day + "/" + year + ")";
 
-           // weather(data);
+            cityName.innerHTML = data.name + " (" + (month +1) + "/" + day + "/" + year + ")" + weatherIcon;
+
+           getWeatherInfo(data);
+            
+          
         })
 
-}
+
 
 
 // Create function to fetch data from OpenWeather API
-var getWeatherInfo = function() {
-    var weatherUrl = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + data.coord.lat + "&units=imperial&cnt=5&appid=" + APIKey;
+var getWeatherInfo = function (data) {
+    var weatherUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&units=imperial&appid=" + APIKey;
     //make fetch request to get weather info 
     fetch(weatherUrl)
-        .then(function(response) {
+        .then(function (response) {
             return response.json();
         })
         .then(function (data) {
+            console.log(data);
+            
             displayCurrentWeather(data);
         })
    
 };
 
 
-
+}
 
 // Display current city weather to site
-var displayWeather = function(weather) {
+var displayCurrentWeather = function(weather) {
     console.log("weather data");
 
 
@@ -80,13 +88,15 @@ var displayWeather = function(weather) {
         return;
     }
 
-    //display temp
 
-    //display wind speed
+    // //display temp
+    // temp.textContent = "Temp: " + (data.current.temp) + "* F";
 
-    //display humidity
+    // //display wind speed
+    // window.textContent = "Wind: " + data.current.wind_speed + "mph";
+    // //display humidity
 
-    //display UV index
+    // //display UV index
 
 
 };

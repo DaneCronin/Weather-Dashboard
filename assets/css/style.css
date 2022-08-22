@@ -59,8 +59,10 @@ header h1 {
 
 /* Saved City History Styling */
 #savedCityBtn {
+    display: none;
     background-color: rgb(163, 163, 163);
     color: black;
+    
 }
 
 #savedCityBtn:hover {
@@ -69,11 +71,16 @@ header h1 {
 }
 /* Current Weather Styling */
 .weather {
-    align-items: center;
-    margin-top: 10px;
+   
+    margin-top: 15px;
     padding: 5px;
 }
 
-.current-weather-container h4 {
-    text-align: center;
+
+
+/* Five Day Forecast Styling */
+
+.ext-forecast-container {
+    margin-top: 20px;
+    margin-left: -15px;
 }
