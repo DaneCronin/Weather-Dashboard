@@ -45,10 +45,10 @@ var getCity = function (city) {
             var year = date.getFullYear();
             var weatherIcon = data.weather[0].icon;
             var weatherDescription = data.weather[0].description;
-           // var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
+            weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
 
 
-            cityName.innerHTML = data.name + " (" + (month +1) + "/" + day + "/" + year + ")" + weatherIcon;
+            cityName.innerHTML = data.name + " (" + (month +1) + "/" + day + "/" + year + ")" + weatherIconLink;
 
            getWeatherInfo(data);
             
@@ -75,7 +75,7 @@ var getWeatherInfo = function (data) {
 };
 
 
-}
+
 
 // Display current city weather to site
 var displayCurrentWeather = function(weather) {
@@ -88,9 +88,13 @@ var displayCurrentWeather = function(weather) {
         return;
     }
 
+    //clear old content
+  
+
 
     // //display temp
-    // temp.textContent = "Temp: " + (data.current.temp) + "* F";
+    //temp.textContent = "Temp: " + (data.current.temp) + "* F";
+   
 
     // //display wind speed
     // window.textContent = "Wind: " + data.current.wind_speed + "mph";
@@ -100,7 +104,7 @@ var displayCurrentWeather = function(weather) {
 
 
 };
-
+}
 
 // Display 5-day Forecast of current city
 
