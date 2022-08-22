@@ -3,6 +3,7 @@
 const APIKey = "202c298807f99a13122415d39ef0b143";
 
 // Declare variables for city
+
 var cityFormEl = document.querySelector("#search-form"); // Variable for the search city form element
 var cityNameSearch = document.querySelector("#city-search"); //Variable for the searched city name
 var cityName = document.querySelector("#city-name"); //Variable to display searched City's name in current weather element 
@@ -71,16 +72,16 @@ var getWeatherInfo = function (data) {
             
             displayCurrentWeather(data);
         })
+        
    
 };
 
-
+}
 
 
 // Display current city weather to site
 var displayCurrentWeather = function(weather) {
     console.log("weather data");
-
 
     //check for returned weather data from api
     if (weather.length === 0) {
@@ -91,24 +92,29 @@ var displayCurrentWeather = function(weather) {
     //clear old content
   
 
-
-    // //display temp
-    //temp.textContent = "Temp: " + (data.current.temp) + "* F";
+    //display temp
+    var temperature = document.createElement('p');
+    temperature.id = "temp";
+    temperature.innerHTML = "<strong>Temp:</strong> ";
+    currentWeatherEl.appendChild(temperature);
    
 
-    // //display wind speed
-    // window.textContent = "Wind: " + data.current.wind_speed + "mph";
-    // //display humidity
+    //display wind speed
+    
+    //display humidity
 
-    // //display UV index
+  
+    //display UV index
 
 
 };
-}
+
 
 // Display 5-day Forecast of current city
+    // loop over weather data 
 
 // Store cities searched to localStorage and show as buttons beneath search
+
 
 //Add event listener for button click on search
 cityFormEl.addEventListener("submit", formSubmitHandler);
