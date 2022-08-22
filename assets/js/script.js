@@ -95,16 +95,28 @@ var displayCurrentWeather = function(weather) {
     //display temp
     var temperature = document.createElement('p');
     temperature.id = "temp";
-    temperature.innerHTML = "<strong>Temp:</strong> ";
+    temperature.innerHTML = "Temp: "; 
     currentWeatherEl.appendChild(temperature);
    
 
     //display wind speed
+    var windspeed = document.createElement('p');
+    windspeed.id = "temp";
+    windspeed.innerHTML = "Wind: "; 
+    currentWeatherEl.appendChild(windspeed);
     
     //display humidity
+    var humidity = document.createElement('p');
+    humidity.id = "humidity";
+    humidity.innerHTML = "Humidity: "; 
+    currentWeatherEl.appendChild(humidity);
 
   
     //display UV index
+    var UV = document.createElement('p');
+    UV.id = "UV Index";
+    UV.innerHTML = "UV Index: "; 
+    currentWeatherEl.appendChild(UV);
 
 
 };
