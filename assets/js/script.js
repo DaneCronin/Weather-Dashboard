@@ -3,7 +3,7 @@
 const APIKey = "202c298807f99a13122415d39ef0b143";
 
 // Declare variables for city
-
+var today = new Date();
 var cityFormEl = document.querySelector("#search-form"); // Variable for the search city form element
 var cityNameSearch = document.querySelector("#city-search"); //Variable for the searched city name
 var cityName = document.querySelector("#city-name"); //Variable to display searched City's name in current weather element 
@@ -63,12 +63,16 @@ var getCity = function (city) {
             var weatherIcon = data.weather[0].icon;
             var weatherDescription = data.weather[0].description;
             weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
-
-
+           
+            //display searched city name, date and current weather icon
             cityName.innerHTML = data.name + " (" + (month +1) + "/" + day + "/" + year + ")" + weatherIconLink;
+            currentWeatherEl.append(cityName);
+
+             //run function to display current weather values temp, wind, humidity
+            displayCurrentWeather(data);
 
            getWeatherInfo(data);
-           displayCurrentWeather(data);
+          
           
         })
 
@@ -106,33 +110,40 @@ var displayCurrentWeather = function(data) {
     }
 
     //clear old content?-
+       // Empty Current Weather element for new data
+       currentWeatherEl.textContent = "";
+       
+        // // Update <h4> element to show city, date and icon
+        // var date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+        // cityName.innerHTML = cityName + " (" + date + ") " + weatherIconLink;
+        // currentWeatherEl.append(cityName);
       
   
 
     //display temp
     var temperature = document.createElement('p');
     temperature.id = "temp";
-    temperature.innerHTML = "Temp: " + data.main.temp; 
+    temperature.innerHTML = "<strong>Temp: </strong>" + data.main.temp  + "°F"; 
     currentWeatherEl.appendChild(temperature);
    
 
     //display wind speed
     var windspeed = document.createElement('p');
-    windspeed.id = "temp";
-    windspeed.innerHTML = "Wind: "; 
+    windspeed.id = "wind";
+    windspeed.innerHTML = "<strong>Wind: </strong>" + data.wind.speed + " MPH";
     currentWeatherEl.appendChild(windspeed);
     
     //display humidity
     var humidity = document.createElement('p');
     humidity.id = "humidity";
-    humidity.innerHTML = "Humidity: "; 
+    humidity.innerHTML = "<strong>Humidity: </strong>" + data.main.humidity + "%";
     currentWeatherEl.appendChild(humidity);
 
   
     //display UV index
     var UV = document.createElement('p');
     UV.id = "UV Index";
-    UV.innerHTML = "UV Index: "; 
+    UV.innerHTML = "<strong>UV Index: </strong>" //+ data.main.temp; 
     currentWeatherEl.appendChild(UV);
 
 
@@ -191,4 +202,4 @@ var buttonClickHandler = function (event) {
 cityFormEl.addEventListener("submit", formSubmitHandler);
 
 //Add event listener for click on searched-city buttons
-// savedCityButtonsEl.addEventListener("click", buttonClickHandler);
+//searchHistoryEl.addEventListener("click", buttonClickHandler);
