@@ -112,7 +112,7 @@ var displayCurrentWeather = function(weather) {
     //display temp
     var temperature = document.createElement('p');
     temperature.id = "temp";
-    temperature.innerHTML = "Temp: " + weather.temp; 
+    temperature.innerHTML = "Temp: " //+ weather[0].temp; 
     currentWeatherEl.appendChild(temperature);
    
 
@@ -139,54 +139,55 @@ var displayCurrentWeather = function(weather) {
 };
 
 
-// Display 5-day Forecast of current city
-    // var extendedForecastArray = weather.daily;
-    // // loop over weather data 
-    // for (var i=0; i < extendedForecastArray; i++) {
+//Display 5-day Forecast of current city
 
-    //     var date = (today.getMonth() + 1) + '/' + (today.getDate()) + '/' + today.getFullYear();
-    //     var weatherIcon = extendedForecastArray[i].weather[0].icon;
-    //     var weatherDescription = extendedForecastArray[i].weather[0].description;
-    //     weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
-    //     var dayEl = document.createElement("div");
-    //     dayEl.className = "day";
-    //     dayEl.innerHTML = "<p>" + date + "</p>" +
-    //         "<p>" + weatherIconLink + "</p>" +
-    //         "<p>Temp:" + extendedForecastArray[i].temp.day.toFixed(1) + "°F</p>" +
-    //         "<p>Humidity: " + extendedForecastArray[i].humidity + "%</p>"
+    var extendedForecastArray = weather.daily;
+    // loop over weather data 
+    for (var i=0; i < extendedForecastArray; i++) {
 
-    //     fiveDayEl.appendChild(dayEl);
-    // }
+        var date = (today.getMonth() + 1) + '/' + (today.getDate()) + '/' + today.getFullYear();
+        var weatherIcon = extendedForecastArray[i].weather[0].icon;
+        var weatherDescription = extendedForecastArray[i].weather[0].description;
+        weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
+        var dayEl = document.createElement("div");
+        dayEl.className = "day";
+        dayEl.innerHTML = "<p>" + date + "</p>" +
+            "<p>" + weatherIconLink + "</p>" +
+            "<p>Temp:" + extendedForecastArray[i].temp.day.toFixed(1) + "°F</p>" +
+            "<p>Humidity: " + extendedForecastArray[i].humidity + "%</p>"
 
-// load cities searched to localStorage and show as buttons beneath search
+        fiveDayEl.appendChild(dayEl);
+    }
 
-// var loadHistory = function () {
-//     searchArray = JSON.parse(localStorage.getItem("weatherSearch"));
+//load cities searched to localStorage and show as buttons beneath search
 
-//     if (searchArray) {
-//         cityHistory = JSON.parse(localStorage.getItem("weatherSearch"));
-//         for (let i = 0; i < searchArray.length; i++) {
-//             var searchHistoryEl = document.createElement('button');
-//             searchHistoryEl.className = "btn";
-//             searchHistoryEl.setAttribute("data-city", searchArray[i])
-//             searchHistoryEl.innerHTML = searchArray[i];
-//             historyButtonsEl.appendChild(searchHistoryEl);
-//             historyCardEl.removeAttribute("style");
-//         }
+var loadHistory = function () {
+    searchArray = JSON.parse(localStorage.getItem("weatherSearch"));
 
-//     }
-// }
+    if (searchArray) {
+        cityHistory = JSON.parse(localStorage.getItem("weatherSearch"));
+        for (let i = 0; i < searchArray.length; i++) {
+            var searchHistoryEl = document.createElement('button');
+            searchHistoryEl.className = "btn";
+            searchHistoryEl.setAttribute("data-city", searchArray[i])
+            searchHistoryEl.innerHTML = searchArray[i];
+            historyButtonsEl.appendChild(searchHistoryEl);
+            historyCardEl.removeAttribute("style");
+        }
 
-// // Search weather using search history buttons
-// var buttonClickHandler = function (event) {
-//     var city = event.target.getAttribute("data-city");
-//     if (city) {
-//         getWeatherInfo(city);
-//     }
-// }
+    }
+}
+
+// Search weather using search history buttons
+var buttonClickHandler = function (event) {
+    var city = event.target.getAttribute("data-city");
+    if (city) {
+        getWeatherInfo(city);
+    }
+}
 
 //Add event listener for button click on search
 cityFormEl.addEventListener("submit", formSubmitHandler);
 
 //Add event listener for click on searched-city buttons
-//savedCityButtonsEl.addEventListener("click", buttonClickHandler);
+savedCityButtonsEl.addEventListener("click", buttonClickHandler);
