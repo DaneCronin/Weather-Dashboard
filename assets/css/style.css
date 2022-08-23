@@ -29,9 +29,9 @@ header h1 {
 }
 
 /* City Search Form Styling */
+
 .card {
-    border: solid, 3px, black;
-    margin: 6px;
+    border: none;
 }
 
 
@@ -59,24 +59,24 @@ header h1 {
 
 
 /* Saved City History Styling */
-
-.btn-history {
+/* 
+.btn {
     
     background-color: rgb(163, 163, 163);
     color: black;
     
-}
+} */
 
-.searchHistoryBtn:hover {
+/* .searchHistoryBtn:hover {
     color: rgb(205, 228, 245);
     background-color: rgb(8,20,117);
-}
+} */
 /* Current Weather Styling */
 
 
 /* Five Day Forecast Styling */
 
-/*.ext-forecast-container {
+.ext-forecast-container {
     margin-top: 20px;
     margin-left: -15px;
 }
