@@ -3,13 +3,14 @@
 const APIKey = "202c298807f99a13122415d39ef0b143";
 
 // Declare variables for city
-var today = new Date();
+
 var cityFormEl = document.querySelector("#search-form"); // Variable for the search city form element
 var cityNameSearch = document.querySelector("#city-search"); //Variable for the searched city name
+var weatherEl = document.querySelector(".weather")// Weather div for current weather
 var cityName = document.querySelector("#city-name"); //Variable to display searched City's name in current weather element 
 var currentWeatherEl = document.querySelector("#current-weather"); //Variable to hold current weather
 var fiveDayEl = document.querySelector("#extended-forecast"); //Variable to hold the 5-day extended forecast
-var savedCityButtonsEl = document.querySelector("#savedCityBtn"); //Variables for button to hold searched-for cities
+var searchHistoryEl = document.querySelector(".btn"); //Variables for button to hold searched-for cities
 var historyCardEl = document.querySelector(".history"); //Variable for container for searched city buttons
 var cityHistory = [];  //Store cities in an array
 
@@ -20,7 +21,7 @@ var formSubmitHandler= function (event) {
     event.preventDefault();
 
 
-    var city = cityNameSearch.value.trim();
+    var city = cityNameSearch.value.trim().toUpperCase();
 
     
     if (city) {
@@ -64,6 +65,10 @@ var getCity = function (city) {
             var weatherDescription = data.weather[0].description;
             weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
            
+            
+       // Empty Current Weather element for new data
+       currentWeatherEl.textContent = "";
+
             //display searched city name, date and current weather icon
             cityName.innerHTML = data.name + " (" + (month +1) + "/" + day + "/" + year + ")" + weatherIconLink;
             currentWeatherEl.append(cityName);
@@ -108,18 +113,8 @@ var displayCurrentWeather = function(data) {
         currentWeatherEl.textContent = "No weather data found.";
         return;
     }
-
-    //clear old content?-
-       // Empty Current Weather element for new data
-       currentWeatherEl.textContent = "";
-       
-        // // Update <h4> element to show city, date and icon
-        // var date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
-        // cityName.innerHTML = cityName + " (" + date + ") " + weatherIconLink;
-        // currentWeatherEl.append(cityName);
       
   
-
     //display temp
     var temperature = document.createElement('p');
     temperature.id = "temp";
@@ -198,8 +193,12 @@ var buttonClickHandler = function (event) {
     }
 }
 
+
+
 //Add event listener for button click on search
 cityFormEl.addEventListener("submit", formSubmitHandler);
 
 //Add event listener for click on searched-city buttons
-//searchHistoryEl.addEventListener("click", buttonClickHandler);
+searchHistoryEl.addEventListener("click", buttonClickHandler);
+
+//loadHistory(cityHistory);
