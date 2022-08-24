@@ -134,13 +134,23 @@ var displayCurrentWeather = function(data) {
     currentWeatherEl.appendChild(humidity);
 
   
-    //display UV index
-    var UV = document.createElement('p');
-    UV.id = "UV Index";
-    UV.innerHTML = "<strong>UV Index: </strong>" //+ data.; 
-    currentWeatherEl.appendChild(UV);
-};
+    // Create uv-index element
+    var uvIndex = document.createElement('p');
+    //var uvIndexValue = data.current.uvi;
+    uvIndex.id = "uv";
+    // if (uvIndexValue >= 0) {
+    //     uvIndex.className = "uv-index-green"
+    // }
+    // if (uvIndexValue >= 3) {
+    //     uvIndex.className = "uv-index-yellow"
+    // }
+    // if (uvIndexValue >= 8) {
+    //     uvIndex.className = "uv-index-red"
+    // }
+    uvIndex.innerHTML = "<strong>UV Index:</strong> <span>" //+ uvIndexValue + "</span>";
+    currentWeatherEl.appendChild(uvIndex);
 
+};
 
 //Display 5-day Forecast of current city
 var forecast = function (data) {
@@ -164,6 +174,7 @@ var forecast = function (data) {
         fiveDayEl.append(dayEl);
     };
     }
+
 
 
 
