@@ -62,29 +62,38 @@ header h1 {
 
 /* Saved City History Styling */
 
-/* .btn {
+#historyBtn {
     
     background-color: rgb(163, 163, 163);
     color: black;
     
-} */
+} 
 
-/* .searchHistoryBtn:hover {
+#historyBtn:hover {
     color: rgb(205, 228, 245);
     background-color: rgb(8,20,117);
-} */
+}
 
 
 /* Current Weather Styling */
+#current-weather {
+    
+    border: 1px solid rgb(0, 0, 0);
+    visibility: hidden;
+    border-radius: 5px;
+    padding-left: 10px;
+}
 
 
 /* Five Day Forecast Styling */
 
 .ext-forecast-container {
     margin-top: 20px;
-    margin-left: -15px;
+    padding-left: 10px;
     visibility: hidden;
 }
+
+
 
 /* UV-Index Color Styling*/
 .uv-index-green span{

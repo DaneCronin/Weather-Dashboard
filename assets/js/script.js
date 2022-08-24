@@ -68,8 +68,8 @@ var getCity = function (city) {
        fiveDayEl.textContent = "";
 
              // Remove class name 'hidden' to show current weather card
-            
-               fiveDayContainerEl.classList="visible";
+               currentWeatherEl.classList = "visible";
+               fiveDayContainerEl.classList = "visible";
   
 
             //display searched city name, date and current weather icon
@@ -195,6 +195,7 @@ var loadHistory = function (city) {
         }
         var searchHistoryEl = document.createElement('button');
             searchHistoryEl.className = "btn";
+            searchHistoryEl.id = "historyBtn"
             searchHistoryEl.setAttribute("data-city", city)
             searchHistoryEl.innerHTML = city;
             historyCardEl.append(searchHistoryEl);
