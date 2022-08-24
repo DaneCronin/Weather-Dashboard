@@ -12,7 +12,8 @@ h5 {
 }
 
 main {
-    width: 100%;
+    margin: 20px auto;
+    width: 94%;
   }
 
 /* Header Styling */
@@ -80,3 +81,31 @@ header h1 {
     margin-top: 20px;
     margin-left: -15px;
 }
+
+/* UV-Index Color Styling*/
+.uv-index-green span{
+    padding: 1px 5px;
+    background-color: green;
+    border-radius: 5px;
+  }
+  .uv-index-yellow span{
+    padding: 1px 5px;
+    background-color: yellow;
+    border-radius: 5px;
+  }
+  .uv-index-red span{
+    padding: 1px 5px;
+    background-color: rgb(226, 59, 59);
+    border-radius: 5px;
+  }
+  
+  /* Forecast Day Card Styling */
+  .day{
+    color: white;
+    background-color: rgba(52,71,90,255);
+    border-radius: 5px;
+    margin: 5px;
+    padding: 0 6px;
+    font-size: 14px;
+  }
+  

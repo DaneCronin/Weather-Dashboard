@@ -167,7 +167,7 @@ var forecast = function (data) {
         dayEl.className = "day";
         dayEl.innerHTML = "<p>" + date + "</p>" +
             "<p>" + weatherIconLink + "</p>" +
-            "<p>Temp:" + extendedForecastArray[i].temp.day.toFixed(1) + "°F</p>" +
+            "<p>Temp:" + extendedForecastArray[i].temp.day.toFixed(1) + "°F</p>" + "<p>Wind:" + extendedForecastArray[i].wind_speed + " MPH</p>" +
             "<p>Humidity: " + extendedForecastArray[i].humidity + "%</p>"
 
         
