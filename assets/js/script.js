@@ -3,7 +3,7 @@
 const APIKey = "202c298807f99a13122415d39ef0b143";
 
 // Declare variables for city
-
+var today = new Date();
 var cityFormEl = document.querySelector("#search-form"); // Variable for the search city form element
 var cityNameSearch = document.querySelector("#city-search"); //Variable for the searched city name
 var weatherEl = document.querySelector(".weather")// Weather div for current weather
@@ -64,6 +64,9 @@ var getCity = function (city) {
             
        // Empty Current Weather element for new data
        currentWeatherEl.textContent = "";
+       fiveDayEl.textContent = "";
+
+  
 
             //display searched city name, date and current weather icon
             cityName.innerHTML = data.name + " (" + (month +1) + "/" + day + "/" + year + ")" + weatherIconLink;
@@ -76,13 +79,13 @@ var getCity = function (city) {
           
           
         })
-
+       
 
 
 
 // Create function to fetch data from OpenWeather API
 var getWeatherInfo = function (data) {
-    var weatherUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&units=imperial&appid=" + APIKey;
+    var weatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&units=imperial&appid=8a42d43f7d7dc180da5b1e51890e67dc";
     //make fetch request to get weather info 
     fetch(weatherUrl)
         .then(function (response) {
@@ -134,23 +137,21 @@ var displayCurrentWeather = function(data) {
     //display UV index
     var UV = document.createElement('p');
     UV.id = "UV Index";
-    UV.innerHTML = "<strong>UV Index: </strong>" //+ data.main.temp; 
+    UV.innerHTML = "<strong>UV Index: </strong>" //+ data.; 
     currentWeatherEl.appendChild(UV);
-
-
 };
 
 
 //Display 5-day Forecast of current city
 var forecast = function (data) {
-    var extendedForecastArray = data.list[i];
+    var extendedForecastArray = data.daily;
     console.log(data);
     // loop over weather data 
-    for (var i=0; i < extendedForecastArray; i++) {
+    for (var i=0; i < extendedForecastArray.length -3; i++) {
 
         var date = (today.getMonth() + 1) + '/' + (today.getDate()) + '/' + today.getFullYear();
-        var weatherIcon = extendedForecastArray[i].weather[i].icon;
-        var weatherDescription = extendedForecastArray[i].weather[i].description;
+        var weatherIcon = extendedForecastArray[i].weather[0].icon;
+        var weatherDescription = extendedForecastArray[i].weather[0].description;
         weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
         var dayEl = document.createElement("div");
         dayEl.className = "day";
@@ -161,9 +162,11 @@ var forecast = function (data) {
 
         
         fiveDayEl.append(dayEl);
-
+    };
     }
-}
+
+
+
 //load cities searched to localStorage and show as buttons beneath search
 
 var loadHistory = function (city) {
