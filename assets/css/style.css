@@ -50,6 +50,7 @@ header h1 {
 .btn:hover {
     color: rgb(205, 228, 245);
     background-color: rgb(8,20,117);
+    display: block;
 }
 
 .form-input {
@@ -72,6 +73,8 @@ header h1 {
     color: rgb(205, 228, 245);
     background-color: rgb(8,20,117);
 } */
+
+
 /* Current Weather Styling */
 
 
@@ -80,6 +83,7 @@ header h1 {
 .ext-forecast-container {
     margin-top: 20px;
     margin-left: -15px;
+    visibility: hidden;
 }
 
 /* UV-Index Color Styling*/
@@ -100,7 +104,7 @@ header h1 {
   }
   
   /* Forecast Day Card Styling */
-  .day{
+  .day {
     color: white;
     background-color: rgba(52,71,90,255);
     border-radius: 5px;

@@ -9,6 +9,7 @@ var cityNameSearch = document.querySelector("#city-search"); //Variable for the 
 var weatherEl = document.querySelector(".weather")// Weather div for current weather
 var cityName = document.querySelector("#city-name"); //Variable to display searched City's name in current weather element 
 var currentWeatherEl = document.querySelector("#current-weather"); //Variable to hold current weather
+var fiveDayContainerEl = document.querySelector(".ext-forecast-container");
 var fiveDayEl = document.querySelector(".extended-forecast"); //Variable to hold the 5-day extended forecast
 var searchHistoryEl = document.querySelector(".btn"); //Variables for button to hold searched-for cities
 var historyCardEl = document.querySelector(".history"); //Variable for container for searched city buttons
@@ -66,6 +67,9 @@ var getCity = function (city) {
        currentWeatherEl.textContent = "";
        fiveDayEl.textContent = "";
 
+             // Remove class name 'hidden' to show current weather card
+            
+               fiveDayContainerEl.classList="visible";
   
 
             //display searched city name, date and current weather icon
@@ -159,7 +163,7 @@ var forecast = function (data) {
     // loop over weather data 
     for (var i=0; i < extendedForecastArray.length -3; i++) {
 
-        var date = (today.getMonth() + 1) + '/' + (today.getDate()) + '/' + today.getFullYear();
+        var date = (today.getMonth() + 1) + '/' + (today.getDate()+ (i+1)) + '/' + today.getFullYear();
         var weatherIcon = extendedForecastArray[i].weather[0].icon;
         var weatherDescription = extendedForecastArray[i].weather[0].description;
         weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />";
@@ -167,7 +171,7 @@ var forecast = function (data) {
         dayEl.className = "day";
         dayEl.innerHTML = "<p>" + date + "</p>" +
             "<p>" + weatherIconLink + "</p>" +
-            "<p>Temp:" + extendedForecastArray[i].temp.day.toFixed(1) + "°F</p>" + "<p>Wind:" + extendedForecastArray[i].wind_speed + " MPH</p>" +
+            "<p>Temp: " + extendedForecastArray[i].temp.day.toFixed(1) + "°F</p>" + "<p>Wind: " + extendedForecastArray[i].wind_speed + " MPH</p>" +
             "<p>Humidity: " + extendedForecastArray[i].humidity + "%</p>"
 
         
@@ -214,4 +218,4 @@ cityFormEl.addEventListener("submit", formSubmitHandler);
 //Add event listener for click on searched-city buttons
 searchHistoryEl.addEventListener("click", buttonClickHandler);
 
-//loadHistory(cityHistory);
+//loadHistory();
