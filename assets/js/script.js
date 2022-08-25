@@ -76,6 +76,9 @@ var getCity = function (city) {
             cityName.innerHTML = data.name + " (" + (month +1) + "/" + day + "/" + year + ")" + weatherIconLink;
             currentWeatherEl.append(cityName);
 
+           
+
+
              //run function to display current weather values temp, wind, humidity
             displayCurrentWeather(data);
 
@@ -83,9 +86,11 @@ var getCity = function (city) {
           
           
         })
-       
+    
 
 
+
+}
 
 // Create function to fetch data from OpenWeather API
 var getWeatherInfo = function (data) {
@@ -104,12 +109,9 @@ var getWeatherInfo = function (data) {
    
 };
 
-}
-
-
 // Display current city weather to site
 var displayCurrentWeather = function(data) {
-    console.log();
+    console.log("data display current weather function", data);
 
     //check for returned weather data from api
     if (data.length === 0) {
@@ -117,18 +119,19 @@ var displayCurrentWeather = function(data) {
         return;
     }
       
+    
   
     //display temp
     var temperature = document.createElement('p');
     temperature.id = "temp";
-    temperature.innerHTML = "<strong>Temp: </strong>" + data.main.temp  + "°F"; 
+    temperature.innerHTML = "<strong>Temp: </strong>" + data.main.temp.toFixed(0)  + "°F"; 
     currentWeatherEl.appendChild(temperature);
    
 
     //display wind speed
     var windspeed = document.createElement('p');
     windspeed.id = "wind";
-    windspeed.innerHTML = "<strong>Wind: </strong>" + data.wind.speed + " MPH";
+    windspeed.innerHTML = "<strong>Wind: </strong>" + data.wind.speed.toFixed(1) + " MPH";
     currentWeatherEl.appendChild(windspeed);
     
     //display humidity
@@ -137,22 +140,8 @@ var displayCurrentWeather = function(data) {
     humidity.innerHTML = "<strong>Humidity: </strong>" + data.main.humidity + "%";
     currentWeatherEl.appendChild(humidity);
 
-  
-    // Create uv-index element
-    var uvIndex = document.createElement('p');
-    //var uvIndexValue = data.current.uvi;
-    uvIndex.id = "uv";
-    // if (uvIndexValue >= 0) {
-    //     uvIndex.className = "uv-index-green"
-    // }
-    // if (uvIndexValue >= 3) {
-    //     uvIndex.className = "uv-index-yellow"
-    // }
-    // if (uvIndexValue >= 8) {
-    //     uvIndex.className = "uv-index-red"
-    // }
-    uvIndex.innerHTML = "<strong>UV Index:</strong> <span>" //+ uvIndexValue + "</span>";
-    currentWeatherEl.appendChild(uvIndex);
+    
+    
 
 };
 
@@ -171,13 +160,37 @@ var forecast = function (data) {
         dayEl.className = "day";
         dayEl.innerHTML = "<p>" + date + "</p>" +
             "<p>" + weatherIconLink + "</p>" +
-            "<p>Temp: " + extendedForecastArray[i].temp.day.toFixed(1) + "°F</p>" + "<p>Wind: " + extendedForecastArray[i].wind_speed + " MPH</p>" +
+            "<p>Temp: " + extendedForecastArray[i].temp.day.toFixed(0) + "°F</p>" + "<p>Wind: " + extendedForecastArray[i].wind_speed.toFixed(1) + " MPH</p>" +
             "<p>Humidity: " + extendedForecastArray[i].humidity + "%</p>"
-
-        
+           
+          
         fiveDayEl.append(dayEl);
+ 
     };
+
+
+   // Create uv-index element
+   var uvIndex = document.createElement('p');
+
+   var uvIndexValue = data.current.uvi;
+   uvIndex.id = "uv";
+   if (uvIndexValue >= 0) {
+       uvIndex.className = "uv-index-green"
+   }
+   if (uvIndexValue >= 3) {
+       uvIndex.className = "uv-index-yellow"
+   }
+   if (uvIndexValue >= 8) {
+       uvIndex.className = "uv-index-red"
+   }
+   uvIndex.innerHTML = "<strong>UV Index:</strong> <span>" + uvIndexValue + "</span>";
+
+   currentWeatherEl.appendChild(uvIndex);
+     
+        
     }
+
+       
 
 
 
@@ -196,7 +209,7 @@ var loadHistory = function (city) {
         var searchHistoryEl = document.createElement('button');
             searchHistoryEl.className = "btn";
             searchHistoryEl.id = "historyBtn"
-            searchHistoryEl.setAttribute("data-city", city)
+            searchHistoryEl.setAttribute("data-city", city);
             searchHistoryEl.innerHTML = city;
             historyCardEl.append(searchHistoryEl);
 
@@ -206,10 +219,13 @@ var loadHistory = function (city) {
 // Search weather using search history buttons
 var buttonClickHandler = function (event) {
     var city = event.target.getAttribute("data-city");
+    console.log(event.target);
     if (city) {
-        getWeatherInfo(city);
+
+        loadHistory(searchArray);
     }
 }
+
 
 
 
