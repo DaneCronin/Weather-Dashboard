@@ -16,7 +16,7 @@ Build an application to allow users to search a city and see the city name, date
 
 ## Site Image:
 
-![image](https://user-images.githubusercontent.com/107944830/186533950-c11414c2-601d-40fd-a3b5-2a238539e83b.png)
+![image](https://user-images.githubusercontent.com/107944830/186568074-b44f7651-d06a-43c5-8074-1342eb6a5eda.png)
 
 ## Contributors 
 
