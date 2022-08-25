@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+   background-color: #FFFFFF; 
+}
+
+h4,
+h5 {
+    font-weight: bold;
+}
+
+main {
+    margin: 20px auto;
+    width: 94%;
+  }
+
+/* Header Styling */
+header {
+    background-image: linear-gradient(to right, rgba(39,115,180, 0.9), rgb(8,20,117));
+}
+
+header h1 {
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+/* City Search Form Styling */
+
+.card {
+    border: none;
+}
+
+
+
+.btn {
+    background-color: rgb(84,158,226);
+    padding: 3px;
+    color: rgb(205, 228, 245);
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+}
+
+.btn:hover {
+    color: rgb(205, 228, 245);
+    background-color: rgb(8,20,117);
+    display: block;
+}
+
+.form-input {
+    padding: 5px;
+    width: 100%;
+    margin: 5px, 0;
+}
+
+
+/* Saved City History Styling */
+
+#historyBtn {
+    
+    background-color: rgb(163, 163, 163);
+    color: black;
+    
+} 
+
+#historyBtn:hover {
+    color: rgb(205, 228, 245);
+    background-color: rgb(8,20,117);
+}
+
+
+/* Current Weather Styling */
+#current-weather {
+    
+    border: 1px solid rgb(0, 0, 0);
+    visibility: hidden;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+
+/* Five Day Forecast Styling */
+
+.ext-forecast-container {
+    margin-top: 20px;
+    padding-left: 10px;
+    visibility: hidden;
+}
+
+
+
+/* UV-Index Color Styling*/
+.uv-index-green span{
+    padding: 1px 5px;
+    background-color: green;
+    border-radius: 5px;
+  }
+  .uv-index-yellow span{
+    padding: 1px 5px;
+    background-color: yellow;
+    border-radius: 5px;
+  }
+  .uv-index-red span{
+    padding: 1px 5px;
+    background-color: rgb(226, 59, 59);
+    border-radius: 5px;
+  }
+  
+  /* Forecast Day Card Styling */
+  .day {
+    color: white;
+    background-color: rgba(52,71,90,255);
+    border-radius: 5px;
+    margin: 5px;
+    padding: 0 6px;
+    font-size: 14px;
+  }
+  
