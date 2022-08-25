@@ -111,7 +111,7 @@ var getWeatherInfo = function (data) {
 
 // Display current city weather to site
 var displayCurrentWeather = function(data) {
-    console.log("data display current weather function", data);
+    //console.log("data display current weather function", data);
 
     //check for returned weather data from api
     if (data.length === 0) {
